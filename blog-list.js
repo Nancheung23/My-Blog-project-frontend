@@ -65,9 +65,9 @@ const loadBlogList = async () => {
             <td>${moment(v.createdAt).format('YYYY-MM-DD h:mm:ss a')}</td>
             <td class="center">${moment(v.updatedAt).format('YYYY-MM-DD h:mm:ss a')}</td>
             <td class="center">${v.views}</td>
-            <td class="center">${v.coms}</td>
+            <td class="center">${v.coms.length}</td>
             <td class="center">
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger del" data-id="${v._id}">Delete</button>
             </td>
             <td class="center">
             <a href="blog-edit.html" type="button" class="btn btn-danger">Modify</a>
@@ -82,3 +82,30 @@ const loadBlogList = async () => {
 
 // while direct page
 loadBlogList()
+
+// delete article
+let tbody = document.querySelector("tbody")
+tbody.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('del')) {
+        let delBtn = e.target
+        let aid = delBtn.dataset.id
+        console.log(aid);
+        try {
+            let url = baseURL + '/api/articles/' + aid
+            let token = 'Bearer ' + localStorage.getItem('token')
+            if (token) {
+                const response = await fetch(url, {
+                    method : 'DELETE',
+                    headers : {
+                        Authorization : token,
+                    }
+                })
+                const data = await response.json()
+                layer.msg(data.msg)
+                loadBlogList()
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+})
