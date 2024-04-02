@@ -122,72 +122,7 @@
   </script>
   <!-- my js file -->
   <script src="./blog-list.js"></script>
-  <script>
-    // switch i18nChangeLanguage
-    wangEditor.i18nChangeLanguage('en');
-    const { createEditor, createToolbar } = window.wangEditor;
-    const editorConfig = {
-      placeholder: "Please Write",
-      onChange(editor) {
-        const html = editor.getHtml();
-        console.log("editor content", html);
-        //  <textarea>
-        content = html
-      },
-      //****** set 1
-      MENU_CONF: {},
-    };
-    //*** set 2
-    editorConfig.MENU_CONF["uploadImage"] = {
-      server: "http://localhost:3000/api/upload",
-      fieldName: "img",
-      // pic
-      customInsert(res, insertFn) {
-        console.log(res);
-        // TS 
-        // customInsert(res, insertFn) {                  		  // JS
-        //***set 3
-        // res
-        insertFn("http://localhost:3000" + res.data);
-      },
-    };
-
-    // my font set
-    editorConfig.MENU_CONF['fontFamily'] = {
-      fontFamilyList: [
-        { name: 'Arial', value: 'Arial, sans-serif' },
-        { name: 'Verdana', value: 'Verdana, sans-serif' },
-        { name: 'Helvetica', value: 'Helvetica, sans-serif' },
-        { name: 'Tahoma', value: 'Tahoma, sans-serif' },
-        { name: 'Trebuchet MS', value: 'Trebuchet MS, sans-serif' },
-        { name: 'Times New Roman', value: 'Times New Roman, serif' },
-        { name: 'Georgia', value: 'Georgia, serif' },
-        { name: 'Garamond', value: 'Garamond, serif' },
-        { name: 'Courier New', value: 'Courier New, monospace' },
-        { name: 'Brush Script MT', value: 'Brush Script MT, cursive' },
-        { name: 'Lucida Console', value: 'Lucida Console, monospace' },
-        { name: 'Impact', value: 'Impact, sans-serif' },
-        { name: 'Comic Sans MS', value: 'Comic Sans MS, cursive' }
-      ]
-    }
-
-
-    const editor = createEditor({
-      selector: "#editor-container",
-      html: "<p><br></p>",
-      config: editorConfig,
-      mode: "default", // or 'simple'
-    });
-
-    const toolbarConfig = {};
-
-    const toolbar = createToolbar({
-      editor,
-      selector: "#toolbar-container",
-      config: toolbarConfig,
-      mode: "default", // or 'simple'
-    });
-  </script>
+  <script src="wang-editor.js"></script>
 </body>
 
 </html>
