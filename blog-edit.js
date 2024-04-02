@@ -76,6 +76,35 @@ sendBtn.addEventListener('click', async () => {
     }
 })
 
+// get time diff
+const getTimeAgo = (timeString) => {
+    let now = moment();
+    let createdAt = moment(timeString);
+    let duration = moment.duration(now.diff(createdAt));
+
+    let timeAgo = [];
+    let days = duration.days();
+    let hours = duration.hours();
+    let minutes = duration.minutes();
+    let seconds = duration.seconds();
+
+    if (days > 0) {
+        timeAgo.push(days + " day" + (days > 1 ? "s" : ""));
+    }
+    if (hours > 0) {
+        timeAgo.push(hours + " hour" + (hours > 1 ? "s" : ""));
+    }
+    if (minutes > 0) {
+        timeAgo.push(minutes + " min" + (minutes > 1 ? "s" : ""));
+    }
+    if (seconds > 0) {
+        timeAgo.push(seconds + " sec" + (seconds > 1 ? "s" : ""));
+    }
+
+    return timeAgo.join(" ") + " ago";
+}
+
+
 // load comment list
 const loadCommentList = async () => {
     try {
@@ -96,7 +125,7 @@ const loadCommentList = async () => {
                 </a>
                 <div class="media-body">
                 <a href="#">${v.reply_user_id.nickname}</a>
-                <small class="text-muted">${moment(v.createdAt).fromNow()}</small>
+                <small class="text-muted">${getTimeAgo(v.updatedAt)}</small>
                 </div>
             </div>
             <div class="social-body">
