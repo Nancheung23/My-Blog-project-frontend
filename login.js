@@ -30,6 +30,8 @@ const fetchLogin = async (url, info) => {
             setTimeout(() => {
                 location.href = './blog-list.html'
             }, 1000)
+        } else {
+            layer.msg(data.msg)
         }
     } catch (error) {
         console.log(error);
@@ -44,3 +46,4 @@ loginForm.addEventListener('submit', async (e) => {
     let loginApi = `${baseURL}/api/users`
     await fetchLogin(loginApi, { username, password })
 })
+
