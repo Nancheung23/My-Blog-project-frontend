@@ -70,7 +70,7 @@ const loadBlogList = async () => {
             <button type="button" class="btn btn-danger del" data-id="${v._id}">Delete</button>
             </td>
             <td class="center">
-            <a href="blog-edit.html" type="button" class="btn btn-danger">Modify</a>
+            <a href="blog-edit.html?aid=${v._id}" type="button" class="btn btn-danger">Modify</a>
             </td>
         </tr>`)
             document.querySelector("tbody").innerHTML = trArr.join("")
