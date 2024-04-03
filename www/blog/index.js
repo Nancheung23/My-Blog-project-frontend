@@ -41,7 +41,7 @@ const loadList = async () => {
         const data = await response.json()
         let articleArr = data.data.map(a => `
         <div class="ibox-content">
-            <a href="./detail.html/aid=${v._id}" class="btn-link">
+            <a href="detail.html?aid=${a._id}" class="btn-link">
                 <h2>
                 ${a.title}
                 </h2>
