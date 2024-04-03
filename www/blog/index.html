@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Article List</title>
+
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <link href="css/animate.min.css" rel="stylesheet" />
+  <link href="css/style.min.css" rel="stylesheet" />
+</head>
+
+<body class="gray-bg">
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Nan's Blog</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active">
+                <a href="../user-admin/register.html">Register</a>
+              </li>
+              <li>
+                <a href="../user-admin/login.html">Login</a>
+              </li>
+              <li>
+                <a href="#">Exit</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper wrapper-content animated fadeInRight blog">
+    <div class="row art-list">
+      <div class="col-sm-12">
+        <div class="ibox">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav aria-label="...">
+    <ul class="pager">
+      <li><a href="javascript:;">Load More</a></li>
+    </ul>
+  </nav>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- <script src="js/content.min.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <!-- moment js -->
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
+  <script>
+    moment().format();
+  </script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
